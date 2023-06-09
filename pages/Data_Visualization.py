@@ -9,7 +9,7 @@ st.set_page_config(
      page_title="Data visualization",
      page_icon="🧊",
      layout="wide",
-     initial_sidebar_state ="collapsed",
+     initial_sidebar_state ="auto",
  )
 
 # HtmlFile = open("https://dionysisk.eu/RSA/report.html", 'r', encoding='utf-8')
@@ -34,8 +34,27 @@ st.set_page_config(
 #                           }   
 #                       }
 #                     </script> 
+# components.html(
+# '''
+# <iframe src="https://dionysisk.eu/RSA/report.html"  width="100%"></iframe>
+# '''
+# )
 components.html(
 '''
-<iframe src="https://dionysisk.eu/RSA/report.html"  width="100%"></iframe>
+<div class='iframe-parent'>
+  <iframe src="https://dionysisk.eu/RSA/report.html">
+    <p>Hi SOF</p>
+  </iframe>
+</div>
+
+.iframe-parent{
+  width: 100vw;
+  height: 50vh;
+}
+
+iframe{
+  width: 100%;
+  height: 100%;
+}
 '''
 )
