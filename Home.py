@@ -4,8 +4,9 @@ import pandas as pd
 
 st.set_page_config(
     page_title="RA_France",
-    page_icon="💥",
+    page_icon="🚗💥🚙",
 )
+
 """
 # Welcome to IC team!
 
@@ -22,5 +23,4 @@ st.write("# Welcome to Streamlit! 👋")
 st.sidebar.success("Select a demo above.")
 
 
-)
 
