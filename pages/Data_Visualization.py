@@ -1,33 +1,13 @@
-import pandas as pd
-import numpy as np 
-from   matplotlib import style
-import pandas as pd 
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
 import streamlit as st
-import altair as alt
-import plotly.express as px
-import custom_functions
+import streamlit.components.v1 as components
 
-     
-uploaded_file = st.file_uploader("Choose a file")
-df = custom_functions.read_uploaded_file(uploaded_file)
-   
-st.markdown("""4.1 Visualisation of Accident severity trends across different years.
-        - we can see that death rate in accidents is slightly getting reduced over years
-        - Number of accidents also show a reducing trend over years 
-""")
+# >>> import plotly.express as px
+# >>> fig = px.box(range(10))
+# >>> fig.write_html('test.html')
 
-# Extract data for visualisation
-df1 = df.copy()
-df1['AccidentSeverity'] = df1['AccidentSeverity'].astype(str).replace(['1','2','3','4'], ['Not Injured','Died','Injured&Hospitalised','Slightly Injured'])
+st.header("test html import")
 
-road_accidents = pd.DataFrame({'AccidentSeverity','AccidentId','Year'})
- 
-bar_chart = alt.Chart(road_accidents).mark_bar().encode(
-        x="year(Year):O",
-        y="sum(AccidentId):Q",
-        color="AccidentSeverity:N"
-    )
-st.altair_chart(bar_chart, use_container_width=True)
+HtmlFile = open("../output.html", 'r', encoding='utf-8')
+source_code = HtmlFile.read() 
+print(source_code)
+components.html(source_code)
