@@ -4,7 +4,7 @@ import pandas as pd
 
 st.set_page_config(
     page_title="RA_France",
-    page_icon="🚗💥🚙",
+    page_icon="💥",
 )
 
 """
@@ -20,7 +20,7 @@ st.image("https://waterlust.com/cdn/shop/collections/SB_BG_016_1600x.jpg?v=16686
 
 st.write("# Welcome to Streamlit! 👋")
 
-st.sidebar.success("Select a demo above.")
+#st.sidebar.success("Select a demo above.")
 
 
 
