@@ -24,7 +24,18 @@ st.set_page_config(
 
 components.html(
 '''
-<iframe src="https://dionysisk.eu/RSA/report.html"  { height: 100%; }, width=100 ">></iframe>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The iframe height attribute</h1>
+
+<iframe src="https://dionysisk.eu/RSA/report.html" width="100%" height="600">
+<p>Your browser does not support iframes.</p>
+</iframe>
+
+</body>
+</html>
 
 '''
 )
