@@ -5,39 +5,29 @@ import pydeck as pdk
 import plotly.express as px
 import datetime as dt
 
+
+
+
+
 #from pathlib import Path
 #DATA_URL = Path(Training/Datascientist/Coursera).parents[1] / 'Motor_Vehicle_Collisions_-_Crashes.csv'
+data_URL='https://ln5.sync.com/dl/295f1a2d0/zafid975-55tvqwxn-vju4dapn-ciqbhmu7'
+df = pd.read_csv(data_URL)
+# uploaded_file = st.file_uploader("Choose a file")
+# if uploaded_file is not None:
+#   DATA_URL = pd.read_csv(uploaded_file).sample(n=100000)
 
-#df = pd.read_csv('https://drive.google.com/file/d/1TvB62joGvnJjfSfQ5GQSOcJ5vZzBxVar/view?usp=sharing')
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-  DATA_URL = pd.read_csv(uploaded_file).sample(n=100000)
-
-df = DATA_URL
+# df = DATA_URL
 
 df.dropna(subset=['LATITUDE', 'LONGITUDE','CRASH_DATE','CRASH_TIME'], inplace=True)
 st.title("Data Visualition of Road Accident")
 st.markdown("This application is a Streamlit dashboard that can be use to analyze road accident in France🗼🥐🇫🇷🥖🚗💥🚙")
 
 from PIL import Image
-#st.image("https://upload.wikimedia.org/wikipedia/commons/2/2f/Multi_vehicle_accident_-_M4_Motorway%2C_Sydney%2C_NSW_%288076208846%29.jpg",
-#            width=600 # Manually Adjust the width of the image as per requirement
 
-#        )
-st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg", width=700)
-         
-#st.video("https://www.youtube.com/shorts/X5CYrFKcvis")
 
-#@st.cache(persist=True)
-#def load_data(nrows):
-#    data = pd.read_csv(df,nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
-#    data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True)
-#    lowercase = lambda x: str(x).lower()
-#    data.rename(lowercase, axis='columns', inplace=True)
-#    data.rename(columns={'crash_date_crash_time': 'date/time'}, inplace=True)
-#    return data
-
-df['date/time'] = pd.to_datetime(df['CRASH_DATE'] + ' ' + df['CRASH_TIME'])
+df['date/time'] =df['DateTime']
+#pd.to_datetime(df['CRASH_DATE'] + ' ' + df['CRASH_TIME'])
 data = df
 
 #data = load_data(20000)
