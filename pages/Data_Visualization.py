@@ -12,7 +12,6 @@ st.set_page_config(
      initial_sidebar_state ="collapsed",
  )
 
-reportURL="https://dionysisk.eu/RSA/report.html"
 # HtmlFile = open("https://dionysisk.eu/RSA/report.html", 'r', encoding='utf-8')
 # source_code = HtmlFile.read() 
 # print(source_code)
@@ -37,7 +36,7 @@ reportURL="https://dionysisk.eu/RSA/report.html"
 #                     </script> 
 components.html(
 '''
-<iframe src=reportURL width="100%" height="100%">
+<iframe src="https://dionysisk.eu/RSA/report.html" width="100%" height="100%">
   <p>Hi SOF</p>
 </iframe>
  ''')
