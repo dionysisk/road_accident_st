@@ -9,6 +9,7 @@ st.set_page_config(
      page_title="Data visualization",
      page_icon="🧊",
      layout="wide",
+     initial_sidebar_state ="collapsed",
  )
 
 # HtmlFile = open("output.html", 'r', encoding='utf-8')
