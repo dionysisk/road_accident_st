@@ -16,7 +16,7 @@ st.set_page_config(
 # source_code = HtmlFile.read() 
 # print(source_code)
 #components.html(source_code, height = 700, width=800,scrolling =True)
-#components.iframe("https://dionysisk.eu/RSA/report.html",height = '70%', width="80%",scrolling =True)
+components.iframe("https://dionysisk.eu/RSA/report.html",height = '700', width="100%",scrolling =True)
 
 # components.html(
 # '''
@@ -39,22 +39,22 @@ st.set_page_config(
 # <iframe src="https://dionysisk.eu/RSA/report.html"  width="100%"></iframe>
 # '''
 # )
-components.html(
-'''
-<div class='iframe-parent'>
-  <iframe src="https://dionysisk.eu/RSA/report.html">
-    <p>Hi SOF</p>
-  </iframe>
-</div>
+# components.html(
+# '''
+# <div class='iframe-parent'>
+#   <iframe src="https://dionysisk.eu/RSA/report.html">
+#     <p>Hi SOF</p>
+#   </iframe>
+# </div>
 
-.iframe-parent{
-  width: 100vw;
-  height: 500vh;
-}
+# .iframe-parent{
+#   width: 100vw;
+#   height: 500vh;
+# }
 
-iframe{
-  width: 100%;
-  height: 100%;
-}
-'''
-)
+# iframe{
+#   width: 100%;
+#   height: 100%;
+# }
+# '''
+# )
