@@ -13,12 +13,12 @@ st.set_page_config(
  )
 
 
-components.iframe("https://dionysisk.eu/RSA/report.html",height = 700, width="80%",scrolling =True)
+# components.iframe("https://dionysisk.eu/RSA/report.html",height = 700, width=800,scrolling =True)
 
-# components.html(
-# '''
-#  <iframe id="idIframe" onload="iframeLoaded()" frameborder="0" src="https://dionysisk.eu/RSA/report.html" height="100%" width="100%" scrolling="no"></iframe>
-#  ''')
+components.html(
+'''
+ <iframe id="idIframe" onload="iframeLoaded()" frameborder="0" src="https://dionysisk.eu/RSA/report.html" height=700 width="100%" scrolling="no"></iframe>
+ ''')
 
 
 # <script type="text/javascript">
