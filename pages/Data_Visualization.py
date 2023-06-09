@@ -21,37 +21,9 @@ st.set_page_config(
 #  ''')
 
 
-# <script type="text/javascript">
-#                       function iframeLoaded() {
-#                           var iFrameID = document.getElementById('idIframe');
-#                           if(iFrameID) {
-#                                 // here you can make the height, I delete it first, then I make it again
-#                                 iFrameID.height = "";
-#                                 iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
-#                           }   
-#                       }
-#                     </script> 
+
 components.html(
 '''
-<iframe src="https://dionysisk.eu/RSA/report.html"  width="100%"></iframe>
+<iframe src="https://dionysisk.eu/RSA/report.html" height="800"></iframe>
 '''
 )
-# components.html(
-# '''
-# <div class='iframe-parent'>
-#   <iframe src="https://dionysisk.eu/RSA/report.html">
-#     <p>Hi SOF</p>
-#   </iframe>
-# </div>
-
-# .iframe-parent{
-#   width: 100vw;
-#   height: 500vh;
-# }
-
-# iframe{
-#   width: 100%;
-#   height: 100%;
-# }
-# '''
-# )
