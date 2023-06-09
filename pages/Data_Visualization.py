@@ -24,10 +24,6 @@ st.set_page_config(
 
 components.html(
 '''
-<html>
-<body>
-<iframe src="https://dionysisk.eu/RSA/report.html"  style="position: absolute; height: 100%; border: none">></iframe>
-</body>
-</html>
+<iframe src="https://dionysisk.eu/RSA/report.html"  style="position: absolute; height: 100%; width="100%";border: none">></iframe>
 '''
 )
