@@ -26,7 +26,7 @@ components.html(
 '''
 <html>
 <body>
-<iframe src="https://dionysisk.eu/RSA/report.html" width="100%" height="100%" frameborder="0"></iframe>
+<iframe src="https://dionysisk.eu/RSA/report.html"  style="position: absolute; height: 100%; border: none">></iframe>
 </body>
 </html>
 '''
