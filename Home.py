@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd
 
 """
-# Welcome to YAKOUT TEAM!
+# Welcome to IC team!
 
-Bonsoir nia mouah !!!!!
+Bonsoir nia mouah !!!!! καλημέρα
 
 """
 from PIL import Image
