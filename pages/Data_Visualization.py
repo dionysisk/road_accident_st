@@ -24,12 +24,19 @@ st.set_page_config(
 
 components.html(
 '''
-<iframe id="myiframe" src="https://dionysisk.eu/RSA/report.html" width="100%" height="600"></iframe>
-<style>
-   #myiframe {
-      width: 100%;
-      height: 100%;
-   }
-</style>
+<html>
+   <head>
+      <script>
+         window.onload = function() {
+            var iframe = document.getElementById("myiframe");
+            iframe.width = iframe.contentWindow.document.body.scrollWidth;
+            iframe.height = iframe.contentWindow.document.body.scrollHeight;
+         }
+      </script>
+   </head>
+   <body>
+      <iframe id="myiframe" src=""https://dionysisk.eu/RSA/report.html""></iframe>
+   </body>
+</html>
 '''
 )
