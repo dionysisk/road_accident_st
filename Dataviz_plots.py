@@ -11,9 +11,8 @@ import plotly.express as px
 import custom_functions
      
 uploaded_file = st.file_uploader("Choose a file")
-df = custom_functions.read_uploaded_file(uploaded_file)
-# if uploaded_file is not None:
-#    df = pd.read_csv(uploaded_file,low_memory=False).sample(n=100000)
+if uploaded_file is not None:
+   df = pd.read_csv(uploaded_file,low_memory=False).sample(n=100000)
    
 st.markdown("""4.1 Visualisation of Accident severity trends across different years.
         - we can see that death rate in accidents is slightly getting reduced over years
@@ -21,12 +20,11 @@ st.markdown("""4.1 Visualisation of Accident severity trends across different ye
 """)
 
 # Extract data for visualisation
-df1 = df.copy()
-# df1 = pd.DataFrame(df)     
+df1 = pd.DataFrame(df)     
           #df['AccidentId'] = df['AccidentId']
           #df['Year'] = df['Year'].astype(float)
-df1['AccidentSeverity'] = df1['AccidentSeverity'].astype(str).replace(['1','2','3','4'], ['Not Injured','Died','Injured&Hospitalised','Slightly Injured'])
-# df1['AccidentSeverity'] = df1['AccidentSeverity'].replace(['1','2','3','4'], ['Not Injured','Died','Injured&Hospitalised','Slightly Injured'])
+df1['AccidentSeverity'] = df1['AccidentSeverity'].astype(str)
+df1['AccidentSeverity'] = df1['AccidentSeverity'].replace(['1','2','3','4'], ['Not Injured','Died','Injured&Hospitalised','Slightly Injured'])
 
    # Visualise extracted data
 road_accidents = pd.DataFrame({'AccidentSeverity','AccidentId','Year'})
