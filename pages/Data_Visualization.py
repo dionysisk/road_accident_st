@@ -36,7 +36,7 @@ st.set_page_config(
 #                     </script> 
 components.html(
 '''
-<iframe src="https://dionysisk.eu/RSA/report.html" width="100%" height="100%">
+<iframe src="https://dionysisk.eu/RSA/report.html" width="100%" height="100vh">
   <p>Hi SOF</p>
 </iframe>
  ''')
