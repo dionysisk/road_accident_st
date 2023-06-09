@@ -16,5 +16,5 @@ st.set_page_config(
 # source_code = HtmlFile.read() 
 # print(source_code)
 #components.html(source_code, height = 700, width=800,scrolling =True)
-components.iframe("https://dionysisk.eu/RSA/report.html",height = 700, width=800,scrolling =True)
+components.iframe("https://dionysisk.eu/RSA/report.html",height = '70%', width="80%",scrolling =True)
 
