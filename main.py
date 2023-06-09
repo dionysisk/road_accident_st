@@ -8,7 +8,7 @@ Bonsoir nia mouah !!!!!
 
 """
 from PIL import Image
-st.image("https://upload.wikimedia.org/wikipedia/commons/9/92/Kim_Kardashian_rwqhizs6yDFl.jpg",
+st.image("https://waterlust.com/cdn/shop/collections/SB_BG_016_1600x.jpg?v=1668631373",
             width=600 # Manually Adjust the width of the image as per requirement
         )
 
