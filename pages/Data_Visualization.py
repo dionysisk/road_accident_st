@@ -13,7 +13,7 @@ st.set_page_config(
  )
 
 
-# components.iframe("https://dionysisk.eu/RSA/report.html",height = 700, width=800,scrolling =True)
+components.iframe("https://dionysisk.eu/RSA/report.html",height = 700, width=1000,scrolling =True)
 
 # components.html(
 # '''
@@ -22,21 +22,21 @@ st.set_page_config(
 
 
 
-components.html(
-'''
-<html>
-   <head>
-      <script>
-         window.onload = function() {
-            var iframe = document.getElementById("myiframe");
-            iframe.width = iframe.contentWindow.document.body.scrollWidth;
-            iframe.height = iframe.contentWindow.document.body.scrollHeight;
-         }
-      </script>
-   </head>
-   <body>
-      <iframe id="myiframe" src=""https://dionysisk.eu/RSA/report.html""></iframe>
-   </body>
-</html>
-'''
-)
+# components.html(
+# '''
+# <html>
+#    <head>
+#       <script>
+#          window.onload = function() {
+#             var iframe = document.getElementById("myiframe");
+#             iframe.width = iframe.contentWindow.document.body.scrollWidth;
+#             iframe.height = iframe.contentWindow.document.body.scrollHeight;
+#          }
+#       </script>
+#    </head>
+#    <body>
+#       <iframe id="myiframe" src=""https://dionysisk.eu/RSA/report.html""></iframe>
+#    </body>
+# </html>
+# '''
+# )
