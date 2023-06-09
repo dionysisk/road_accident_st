@@ -1,10 +1,11 @@
 import streamlit as st
 import pandas as pd
 
-)
+
 st.set_page_config(
     page_title="RA_France",
     page_icon="💥",
+)
 """
 # Welcome to IC team!
 
