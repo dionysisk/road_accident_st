@@ -67,33 +67,35 @@ st.pydeck_chart(pdk.Deck(
 ))
 
 #######################
-chart_data = df[['LATITUDE','LONGITUDE','date/time']]
+chart_data = df[['LATITUDE','LONGITUDE','date/time']].dropna(how="any")
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
 vis_data=chart_data[chart_data['date/time'].dt.hour == hour]
 
-st.pydeck_chart(pdk.Deck(
-    map_style=None,
-    #initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 5,"pitch": 50},
-    initial_view_state=pdk.ViewState(
-         latitude=48.85,
-         longitude=2.35,
-         zoom=6,
-         pitch=50,
-    ),
-    layers=[
-        pdk.Layer(
-           'HexagonLayer',
-           data=chart_data.query(chart_data['date/time'].dt.hour == hour)[['lat', 'lon']].dropna(how="any") ,
-           get_position='[lon, lat]',
-           radius=200,
-           elevation_scale=4,
-           elevation_range=[0, 1000],
-           pickable=True,
-           extruded=True,
-        ),
-    ],
-))
+def pychart(dataframe):
+     st.pydeck_chart(pdk.Deck(
+          map_style=None,
+          #initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 5,"pitch": 50},
+          initial_view_state=pdk.ViewState(
+               latitude=48.85,
+               longitude=2.35,
+               zoom=6,
+               pitch=50,
+          ),
+          layers=[
+               pdk.Layer(
+                    'HexagonLayer',
+                    data=dataframe,
+                    get_position='[lon, lat]',
+                    radius=200,
+                    elevation_scale=4,
+                    elevation_range=[0, 1000],
+                    pickable=True,
+                    extruded=True,
+               ),
+          ],
+     ))
 
+pychart(vis_data)
 #######################
 
 #4. Visualization
