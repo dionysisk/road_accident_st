@@ -1,17 +1,17 @@
 import streamlit as st
 import pandas as pd
-# import numpy as np
-# import pydeck as pdk
-# import plotly.express as px
-# import datetime as dt
+import numpy as np
+import pydeck as pdk
+import plotly.express as px
+import datetime as dt
+import streamlit.components.v1 as components
 
-# import streamlit.components.v1 as components
-# st.set_page_config(
-#      page_title="Data visualization2",
-#      page_icon="🧊",
-#      layout="wide",
-#      initial_sidebar_state ="auto",
-#  )
+st.set_page_config(
+     page_title="Data visualization",
+     page_icon="🧊",
+     layout="wide",
+     initial_sidebar_state ="auto",
+ )
 
 st.markdown('Data Visualization')
 
