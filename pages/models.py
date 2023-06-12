@@ -12,10 +12,8 @@ import xgboost as xgb
 from xgboost import XGBClassifier
 import joblib
 
-#df = pd.read_csv('https://drive.google.com/file/d/1dLzhkMdx58uzJIjhqyFSQBFPKAIiZXhT/view?usp=sharing')
 choices = ['Random Forest','SVC','KNN','XGBOOST','Gradient Boosting']
 BGC=joblib.load('GradientBoostingClassifier.joblib')
-
 
 def prediction(classifier):
    if classifier == 'Gradient Boosting':
@@ -43,19 +41,11 @@ display_model(option)
 #    y_test =df['severity']
 #    X_test = df.drop(['severity','gravMerged'], axis = 1)
 #    prediction(option)
-
-   
-   
-   
-   
-   
+  
    #    st.write(model.score(X_test, y_test))
 #    st.dataframe(confusion_matrix(y_test, model.predict(X_test)))
 #    st.text(classification_report(y_test, model.predict(X_test))
 #    st.write('RMSE Score test=',np.sqrt(MSE(y_test, model.predict(X_test))) )
-
-
-
 
 
 # #result = loaded_model.score(X_test, Y_test)
