@@ -37,13 +37,19 @@ option = st.selectbox(
 display_model(option)
 
 
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-   df = pd.read_csv(uploaded_file)
-   y_test =df['severity']
-   X_test = df.drop(['severity','gravMerged'], axis = 1)
-   prediction(option)
-#    st.write(model.score(X_test, y_test))
+# uploaded_file = st.file_uploader("Choose a file")
+# if uploaded_file is not None:
+#    df = pd.read_csv(uploaded_file)
+#    y_test =df['severity']
+#    X_test = df.drop(['severity','gravMerged'], axis = 1)
+#    prediction(option)
+
+   
+   
+   
+   
+   
+   #    st.write(model.score(X_test, y_test))
 #    st.dataframe(confusion_matrix(y_test, model.predict(X_test)))
 #    st.text(classification_report(y_test, model.predict(X_test))
 #    st.write('RMSE Score test=',np.sqrt(MSE(y_test, model.predict(X_test))) )
