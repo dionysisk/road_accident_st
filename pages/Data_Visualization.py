@@ -49,7 +49,7 @@ st.markdown("road accident between %i:00 and %i:00" % (hour, (hour + 1) % 24))
 midpoint = (np.average(datahour['LATITUDE']), np.average(datahour['LONGITUDE']))
 
 st.pydeck_chart(pdk.Deck(map_style="mapbox://styles/mapbox/streets-v12", initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 11,"pitch": 50},
- layers=[pdk.Layer("HexagonLayer", data=datahour[['INJURED_PERSONS','LATITUDE','LONGITUDE']], get_position=['LONGITUDE','LATITUDE'], radius=100, extruded=True, pickable=True,
+ layers=[pdk.Layer("HexagonLayer", data=datahour[['date/time','LATITUDE','LONGITUDE']], get_position=['LONGITUDE','LATITUDE'], radius=100, extruded=True, pickable=True,
  elevation_scale=4, elevation_range=[0,1000])]))
 
 #4. Visualization
