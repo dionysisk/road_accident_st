@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-st.markdown(f'# {list(page_names_to_funcs.keys())[4]}')
 from model import prediction, scores
 
+st.markdown('# Machine learning models')
 st.write("""Generally speaking we can consider that accuracy scores:
     
                           - Over 90% - Very Good
