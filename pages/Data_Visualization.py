@@ -9,14 +9,16 @@ import streamlit.components.v1 as components
 st.set_page_config(
      page_title="Data visualization",
      page_icon="🧊",
-     #layout="wide",
+     layout="wide",
      initial_sidebar_state ="auto",
  )
 
 st.markdown('Data Visualization')
 
 #from PIL import Image
-st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg", width=700)
+# st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg", width=700)
+# @st.cache_data
+st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg")
 @st.cache_data
 
 #LOAD Data
