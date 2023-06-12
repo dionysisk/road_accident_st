@@ -69,10 +69,16 @@ st.pydeck_chart(pdk.Deck(
 #######################
 chart_data = df[['LATITUDE','LONGITUDE']]
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
-st.write(chart_data[chart_data['date/time'].dt.hour == hour])
+
 st.pydeck_chart(pdk.Deck(
     map_style=None,
-    initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 5,"pitch": 50},
+    #initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 5,"pitch": 50},
+    initial_view_state=pdk.ViewState(
+         latitude=48.85,
+         longitude=2.35,
+         zoom=6,
+         pitch=50,
+    ),
     layers=[
         pdk.Layer(
            'HexagonLayer',
