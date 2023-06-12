@@ -13,48 +13,41 @@ from xgboost import XGBClassifier
 import joblib
 
 #df = pd.read_csv('https://drive.google.com/file/d/1dLzhkMdx58uzJIjhqyFSQBFPKAIiZXhT/view?usp=sharing')
+choices = ['Random Forest','SVC','KNN','XGBOOST','Gradient Boosting']
 
 def prediction(classifier):
    if classifier == 'Gradient Boosting':
       model =joblib.load('GradientBoostingClassifier.joblib')
       model.fit(X_train, y_train)
       return model
-
-
-  
-uploaded_file = st.file_uploader("Choose a file")
-
-if uploaded_file is not None:
-  df = pd.read_csv(uploaded_file)
-  y_test =df['severity']
-  X_test = df.drop(['severity','gravMerged'], axis = 1)
-  prediction('Gradient Boosting')
-
-
-
-
+         
+def display_model(choice)
+   if choice=='Gradient Boosting':
+      st.write('Gradient Boosting score train 74.286 rmse train 0.507')
+         
 st.title('Our model prediction page')
-
-st.header('Road Accident in France 2005-2016')
-
-choices = ['Random Forest','SVC','KNN','XGBOOST','Gradient Boosting']
    
 option = st.selectbox(
      'Which model do you want to try ?',
      choices)
 
-st.write('You selected :', option)
-
-model = prediction(option)
-
-st.write(scores(model, 'Accuracy'))
-
-st.dataframe(scores(model, 'Confusion matrix'))
-
-st.text(scores(model,'Classification report'))
+display_model(option)
 
 
-st.write('RMSE Score test=',np.sqrt(MSE(y_test, model.predict(X_test))) )
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+   df = pd.read_csv(uploaded_file)
+   y_test =df['severity']
+   X_test = df.drop(['severity','gravMerged'], axis = 1)
+   prediction(option)
+   st.write(model.score(X_test, y_test))
+   st.dataframe(confusion_matrix(y_test, model.predict(X_test)))
+   st.text(classification_report(y_test, model.predict(X_test))
+   st.write('RMSE Score test=',np.sqrt(MSE(y_test, model.predict(X_test))) )
+
+
+
+
 
 # #result = loaded_model.score(X_test, Y_test)
 # #print(result)
