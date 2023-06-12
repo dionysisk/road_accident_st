@@ -13,7 +13,11 @@ st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Vis
 @st.cache_data
 
 #LOAD Data
-df = pd.read_csv('https://bol.mondial-assistance.gr/Files/Eda_basic/Eda_basic_Dataviz_07_06_2023.csv')
+def load_data(url):
+ df = pd.read_csv(url)
+ return df
+
+df = load_data('https://bol.mondial-assistance.gr/Files/Eda_basic/Eda_basic_Dataviz_07_06_2023.csv')
  
 #dropna
 df.dropna(subset=['LATITUDE', 'LONGITUDE','CRASH_DATE','CRASH_TIME'], inplace=True)
