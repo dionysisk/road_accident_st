@@ -13,7 +13,7 @@ st.set_page_config(
  )
 
 
-components.iframe("https://dionysisk.eu/RSA/report.html",height = 700, width=1600,scrolling =True)
+components.iframe("https://dionysisk.eu/RSA/report.html",height = 700,scrolling =True, use_column_width=True)
 
 # components.html(
 # '''
