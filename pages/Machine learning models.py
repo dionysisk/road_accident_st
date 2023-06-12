@@ -2,9 +2,6 @@ import streamlit as st
 import pandas as pd
 
 BGC=joblib.load('https://github.com/DimitrisPatros/streamlitRoadAccidents/blob/daac634229cbc1bfca34ea71b13f311195db60eb/pages/GradientBoostingClassifier.joblib')
-def display_model(choice):
-   if choice=='Gradient Boosting':
-      st.write('Gradient Boosting score train 74.286 rmse train 0.507')
 
 st.markdown('# Machine learning models')
 st.write("""Generally speaking we can consider that accuracy scores:
@@ -20,6 +17,6 @@ option = st.selectbox(
          choices)
 
 st.write('You selected :', option)
+if choice=='Gradient Boosting':
+   st.write('Gradient Boosting score train 74.286 rmse train 0.507')
 
-
-display_model(option)
