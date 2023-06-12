@@ -8,12 +8,11 @@ import streamlit.components.v1 as components
 st.set_page_config(
      page_title="Data visualization",
      page_icon="🧊",
-     layout="wide",
+     #layout="wide",
      initial_sidebar_state ="auto",
  )
 
-with col1:
-     components.iframe("https://dionysisk.eu/RSA/report.html",height = 700,scrolling =True)
+components.iframe("https://dionysisk.eu/RSA/report.html",height = 700,scrolling =True,width=700)
 
 # components.html(
 # '''
