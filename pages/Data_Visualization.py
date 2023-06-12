@@ -81,18 +81,7 @@ def pychart(dataframe):
                zoom=6,
                pitch=50,
           ),
-          layers=[
-               pdk.Layer(
-                    'HexagonLayer',
-                    data=dataframe,
-                    get_position='[lon, lat]',
-                    radius=200,
-                    elevation_scale=4,
-                    elevation_range=[0, 1000],
-                    pickable=True,
-                    extruded=True,
-               ),
-          ],
+          layers=[pdk.Layer('HexagonLayer',data=dataframe,get_position='[lon, lat]',radius=200,elevation_scale=4,elevation_range=[0, 1000],pickable=True,extruded=True,),],
      ))
 
 pychart(vis_data)
