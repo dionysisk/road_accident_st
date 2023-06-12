@@ -18,7 +18,7 @@ st.header('Data Visualization')
 #from PIL import Image
 # st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg", width=700)
 # @st.cache_data
-st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg")
+st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg",use_column_width=True)
 @st.cache_data
 
 #LOAD Data
@@ -55,7 +55,7 @@ st.pydeck_chart(pdk.Deck(
      layers=[
           pdk.Layer(
                "HexagonLayer",
-               data=datahour,
+               data=visdata,
                get_position=['LONGITUDE','LATITUDE'],
                radius=100,
                extruded=True,
