@@ -67,7 +67,7 @@ st.pydeck_chart(pdk.Deck(
 ))
 
 #######################
-chart_data = df[['LATITUDE','LONGITUDE']]
+chart_data = df[['LATITUDE','LONGITUDE','date/time']]
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
 vis_data=chart_data[chart_data['date/time'].dt.hour == hour]
 
