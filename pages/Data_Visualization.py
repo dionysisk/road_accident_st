@@ -46,8 +46,9 @@ hour = st.slider("Hour to look at", 0, 23)
 
 st.markdown("road accident between %i:00 and %i:00" % (hour, (hour + 1) % 24))
 
-chart_data = df[['LATITUDE','LONGITUDE','date/time']].dropna(how="any")
+chart_data = df[['LATITUDE','LONGITUDE','date/time','severity']].dropna(how="any")
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
+chart_data=chart_data[chart_data['severity'] == 1]
 vis_data=chart_data[chart_data['date/time'].dt.hour == hour]
 
 def pychart(dataframe):
@@ -64,8 +65,8 @@ def pychart(dataframe):
                data=dataframe,
                get_position='[lon, lat]',
                radius=200,
-               elevation_scale=6,
-               elevation_range=[0, 500],
+               elevation_scale=8,
+               elevation_range=[0, 100],
                pickable=True,
                extruded=True,),],
      ))
