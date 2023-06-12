@@ -64,8 +64,8 @@ def pychart(dataframe):
                data=dataframe,
                get_position='[lon, lat]',
                radius=200,
-               elevation_scale=3,
-               elevation_range=[1, 500],
+               elevation_scale=6,
+               elevation_range=[0, 500],
                pickable=True,
                extruded=True,),],
      ))
