@@ -69,6 +69,7 @@ st.pydeck_chart(pdk.Deck(
 #######################
 chart_data = df[['LATITUDE','LONGITUDE']]
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
+vis_data=chart_data[chart_data['date/time'].dt.hour == hour]
 
 st.pydeck_chart(pdk.Deck(
     map_style=None,
@@ -82,7 +83,7 @@ st.pydeck_chart(pdk.Deck(
     layers=[
         pdk.Layer(
            'HexagonLayer',
-           data=chart_data[chart_data['date/time'].dt.hour == hour],
+           data=vis_data,
            get_position='[lon, lat]',
            radius=200,
            elevation_scale=4,
