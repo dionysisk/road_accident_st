@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
+import joblib
 
-# BGC=joblib.load('https://github.com/DimitrisPatros/streamlitRoadAccidents/blob/daac634229cbc1bfca34ea71b13f311195db60eb/pages/GradientBoostingClassifier.joblib')
+BGC=joblib.load('https://github.com/DimitrisPatros/streamlitRoadAccidents/blob/daac634229cbc1bfca34ea71b13f311195db60eb/pages/GradientBoostingClassifier.joblib')
 
 st.markdown('# Machine learning models')
 st.write("""Generally speaking we can consider that accuracy scores:
