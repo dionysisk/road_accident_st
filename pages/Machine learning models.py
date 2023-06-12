@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 from model import prediction, scores
 
+BGC=joblib.load('GradientBoostingClassifier.joblib')
+def display_model(choice)
+   if choice=='Gradient Boosting':
+      st.write('Gradient Boosting score train 74.286 rmse train 0.507')
+
 st.markdown('# Machine learning models')
 st.write("""Generally speaking we can consider that accuracy scores:
     
@@ -11,25 +16,11 @@ st.write("""Generally speaking we can consider that accuracy scores:
 
 choices = ['Random Forest','SVC','KNN','XGBOOST','Gradient Boosting']
 
-prediction = st.cache(prediction,suppress_st_warning=True)
 option = st.selectbox(
          'Which model do you want to try ?',
          choices)
 
 st.write('You selected :', option)
 
-clf = prediction(option)
 
-display = st.selectbox(
-         "What do you want to display ?",
-         ('Accuracy', 'Confusion matrix','Classification report'))
-
-if display == 'Accuracy':
-        st.write(scores(clf, display))
-elif display == 'Confusion matrix':
-        st.dataframe(scores(clf, display))
-elif display == 'Classification report':
-        #st.table(classification_report(y_test, clf.predict(X_test)))
-        st.text(scores(clf, display))
-        
-        
+display_model(option)
