@@ -5,13 +5,13 @@
 # import plotly.express as px
 # import datetime as dt
 
-import streamlit.components.v1 as components
-st.set_page_config(
-     page_title="Data visualization2",
-     page_icon="🧊",
-     layout="wide",
-     initial_sidebar_state ="auto",
- )
+# import streamlit.components.v1 as components
+# st.set_page_config(
+#      page_title="Data visualization2",
+#      page_icon="🧊",
+#      layout="wide",
+#      initial_sidebar_state ="auto",
+#  )
 
 st.markdown('Data Visualization')
 
