@@ -14,12 +14,15 @@ import joblib
 
 #df = pd.read_csv('https://drive.google.com/file/d/1dLzhkMdx58uzJIjhqyFSQBFPKAIiZXhT/view?usp=sharing')
 choices = ['Random Forest','SVC','KNN','XGBOOST','Gradient Boosting']
+BGC=joblib.load('GradientBoostingClassifier.joblib')
+
 
 def prediction(classifier):
    if classifier == 'Gradient Boosting':
-      model =joblib.load('GradientBoostingClassifier.joblib')
-      model.fit(X_train, y_train)
-      return model
+      st.write(BGC.score(X_test, y_test))
+      st.dataframe(confusion_matrix(y_test, BGC.predict(X_test)))
+      st.text(classification_report(y_test, BGC.predict(X_test)))
+      #st.write('RMSE Score test=',np.sqrt(MSE(y_test, model.predict(X_test))))
          
 def display_model(choice)
    if choice=='Gradient Boosting':
@@ -40,10 +43,10 @@ if uploaded_file is not None:
    y_test =df['severity']
    X_test = df.drop(['severity','gravMerged'], axis = 1)
    prediction(option)
-   st.write(model.score(X_test, y_test))
-   st.dataframe(confusion_matrix(y_test, model.predict(X_test)))
-   st.text(classification_report(y_test, model.predict(X_test))
-   st.write('RMSE Score test=',np.sqrt(MSE(y_test, model.predict(X_test))) )
+#    st.write(model.score(X_test, y_test))
+#    st.dataframe(confusion_matrix(y_test, model.predict(X_test)))
+#    st.text(classification_report(y_test, model.predict(X_test))
+#    st.write('RMSE Score test=',np.sqrt(MSE(y_test, model.predict(X_test))) )
 
 
 
