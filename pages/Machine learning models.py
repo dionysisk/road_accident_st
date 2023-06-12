@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from model import prediction, scores
 
 BGC=joblib.load('GradientBoostingClassifier.joblib')
 def display_model(choice)
