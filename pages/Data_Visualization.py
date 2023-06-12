@@ -51,12 +51,12 @@ midpoint = (np.average(datahour['LATITUDE']), np.average(datahour['LONGITUDE']))
 visdata=datahour[['LATITUDE','LONGITUDE']]
 st.pydeck_chart(pdk.Deck(
      map_style="mapbox://styles/mapbox/streets-v12",
-     initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 11,"pitch": 50},
+     initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 8,"pitch": 50},
      layers=[
           pdk.Layer(
                "HexagonLayer",
-               data=visdata,
-               get_position='[LONGITUDE,LATITUDE]',
+               data=datahour,
+               get_position=['LONGITUDE','LATITUDE'],
                radius=100,
                extruded=True,
                pickable=True,
