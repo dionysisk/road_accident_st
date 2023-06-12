@@ -83,7 +83,7 @@ st.pydeck_chart(pdk.Deck(
     layers=[
         pdk.Layer(
            'HexagonLayer',
-           data=vis_data,
+           data=chart_data.query(chart_data['date/time'].dt.hour == hour)[['lat', 'lon']].dropna(how="any") ,
            get_position='[lon, lat]',
            radius=200,
            elevation_scale=4,
