@@ -5,6 +5,7 @@ import numpy as np
 import pydeck as pdk
 import plotly.express as px
 import datetime as dt
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="RA_France",
