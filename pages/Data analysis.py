@@ -12,8 +12,8 @@ st.set_page_config(
      initial_sidebar_state ="auto",
  )
 
-
-components.iframe("https://dionysisk.eu/RSA/report.html",height = 700,scrolling =True, use_column_width=True)
+with col1:
+     components.iframe("https://dionysisk.eu/RSA/report.html",height = 700,scrolling =True)
 
 # components.html(
 # '''
