@@ -53,7 +53,7 @@ st.markdown("road accident between %i:00 and %i:00" % (hour, (hour + 1) % 24))
 
 chart_data = df[['LATITUDE','LONGITUDE','date/time','severity']].dropna(how="any")
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
-if severity<>'All':
+if severity!='All':
      severity=chart_data=chart_data[chart_data['severity'] == severity]
 vis_data=chart_data[chart_data['date/time'].dt.hour == hour]
 
