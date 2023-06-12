@@ -56,9 +56,9 @@ st.dataframe(scores(model, 'Confusion matrix'))
 
 st.text(scores(model,'Classification report'))
 
-st.write('RMSE Score test=',np.sqrt(MSE(y_test, y_pred_rf)) )
-st.write('RMSE Score train=',np.sqrt(MSE(y_train, y_pred_rf_train)) 
-  
+
+st.write('RMSE Score test=',np.sqrt(MSE(y_test, model.predict(X_test))) )
+
 # #result = loaded_model.score(X_test, Y_test)
 # #print(result)
 
