@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+from model import prediction, scores
 
 st.set_page_config(
     page_title="RA_France",
