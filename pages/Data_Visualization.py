@@ -49,15 +49,15 @@ st.markdown("road accident between %i:00 and %i:00" % (hour, (hour + 1) % 24))
 midpoint = (np.average(datahour['LATITUDE']), np.average(datahour['LONGITUDE']))
 
 st.pydeck_chart(pdk.Deck(map_style="mapbox://styles/mapbox/streets-v12", initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 11,"pitch": 50},
- layers=[pdk.Layer("HexagonLayer", data=datahour[['date/time','LATITUDE','LONGITUDE']], get_position=['LONGITUDE','LATITUDE'], radius=100, extruded=True, pickable=True,
+ layers=[pdk.Layer("HexagonLayer", data=datahour['INJURED_PERSONS'], get_position=['LONGITUDE','LATITUDE'], radius=100, extruded=True, pickable=True,
  elevation_scale=4, elevation_range=[0,1000])]))
 
 #4. Visualization
 st.subheader("Breakdown by minute between %i:00 and %i:00" % (hour, (hour + 1) %24))
-filtered = data[
- (data['date/time'].dt.hour >= hour) & (data['date/time'].dt.hour < (hour +1))
-]
-hist = np.histogram(filtered['date/time'].dt.minute, bins=60, range=(0,60))[0]
+# filtered = data[
+#  (data['date/time'].dt.hour >= hour) & (data['date/time'].dt.hour < (hour +1))
+# ]
+hist = np.histogram(datahour['date/time'].dt.minute, bins=60, range=(0,60))[0]
 chart_data = pd.DataFrame({'minute':range(60), 'crashes':hist})
 fig = px.bar(chart_data, x='minute',y='crashes', hover_data=['minute','crashes'], height=400)
 st.write(fig)
