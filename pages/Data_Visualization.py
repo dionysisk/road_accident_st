@@ -40,33 +40,12 @@ st.header("Where are the most people injured in France?")
 injured_people = st.slider("Number of person injured in road accident",0, 100)
 st.map(data.query("INJURED_PERSONS >= @injured_people")[['LATITUDE', 'LONGITUDE']].dropna(how="any"))
 
-#2. Visualization
+#2. Visualization ######################
 st.header("How many road accident during a given time of the day?")
 hour = st.slider("Hour to look at", 0, 23)
-data = data[data['date/time'].dt.hour == hour]
 
 st.markdown("road accident between %i:00 and %i:00" % (hour, (hour + 1) % 24))
-midpoint = (np.average(data['LATITUDE']), np.average(data['LONGITUDE']))
 
-
-st.pydeck_chart(pdk.Deck(
-     map_style="mapbox://styles/mapbox/streets-v12",
-     initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 8,"pitch": 50},
-     layers=[
-          pdk.Layer(
-               "HexagonLayer",
-               data=data[['date/time','LATITUDE','LONGITUDE']],
-               get_position='[LONGITUDE,LATITUDE]',
-               radius=100,
-               extruded=True,
-               pickable=True,
-               elevation_scale=4,
-               elevation_range=[0,1000]
-          ),
-     ],
-))
-
-#######################
 chart_data = df[['LATITUDE','LONGITUDE','date/time']].dropna(how="any")
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
 vis_data=chart_data[chart_data['date/time'].dt.hour == hour]
@@ -74,14 +53,21 @@ vis_data=chart_data[chart_data['date/time'].dt.hour == hour]
 def pychart(dataframe):
      st.pydeck_chart(pdk.Deck(
           map_style=None,
-          #initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 5,"pitch": 50},
           initial_view_state=pdk.ViewState(
                latitude=48.85,
                longitude=2.35,
                zoom=6,
                pitch=50,
           ),
-          layers=[pdk.Layer('HexagonLayer',data=dataframe,get_position='[lon, lat]',radius=200,elevation_scale=4,elevation_range=[0, 1000],pickable=True,extruded=True,),],
+          layers=[pdk.Layer(
+               'HexagonLayer',
+               data=dataframe,
+               get_position='[lon, lat]',
+               radius=200,
+               elevation_scale=3,
+               elevation_range=[1, 500],
+               pickable=True,
+               extruded=True,),],
      ))
 
 pychart(vis_data)
