@@ -13,7 +13,7 @@ st.set_page_config(
      initial_sidebar_state ="auto",
  )
 
-st.markdown('Data Visualization')
+st.header('Data Visualization')
 
 #from PIL import Image
 # st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg", width=700)
