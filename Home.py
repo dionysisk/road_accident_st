@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from model import prediction, scores
+#from model import prediction, scores
 import numpy as np
 import pydeck as pdk
 import plotly.express as px
