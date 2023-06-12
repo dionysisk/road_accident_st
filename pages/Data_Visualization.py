@@ -43,12 +43,18 @@ st.map(data.query("INJURED_PERSONS >= @injured_people")[['LATITUDE', 'LONGITUDE'
 #2. Visualization ######################
 st.header("How many road accident during a given time of the day?")
 hour = st.slider("Hour to look at", 0, 23)
-
+severity = st.radio("Severity",('Not injuzed', 'Injuzed', 'All'))
+if severity=='Not injuzed':
+     severity=0
+if severity=='Injuzed':
+     severity=1
+     
 st.markdown("road accident between %i:00 and %i:00" % (hour, (hour + 1) % 24))
 
 chart_data = df[['LATITUDE','LONGITUDE','date/time','severity']].dropna(how="any")
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
-chart_data=chart_data[chart_data['severity'] == 1]
+if severity<>'All':
+     severity=chart_data=chart_data[chart_data['severity'] == severity]
 vis_data=chart_data[chart_data['date/time'].dt.hour == hour]
 
 def pychart(dataframe):
@@ -64,9 +70,9 @@ def pychart(dataframe):
                'HexagonLayer',
                data=dataframe,
                get_position='[lon, lat]',
-               radius=200,
-               elevation_scale=8,
-               elevation_range=[10, 100],
+               radius=50,
+               elevation_scale=10,
+               elevation_range=[20, 500],
                pickable=True,
                extruded=True,),],
      ))
