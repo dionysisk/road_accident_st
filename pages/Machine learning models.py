@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 BGC=joblib.load('https://github.com/DimitrisPatros/streamlitRoadAccidents/blob/daac634229cbc1bfca34ea71b13f311195db60eb/pages/GradientBoostingClassifier.joblib')
-def display_model(choice)
+def display_model(choice):
    if choice=='Gradient Boosting':
       st.write('Gradient Boosting score train 74.286 rmse train 0.507')
 
