@@ -16,10 +16,10 @@ st.set_page_config(
 st.header('Data Visualization')
 
 #from PIL import Image
-# st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg", width=700)
-# @st.cache_data
-st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg",use_column_width=True)
+st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg", width=700)
 @st.cache_data
+# st.image("https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg",use_column_width=True)
+# @st.cache_data
 
 #LOAD Data
 def load_data(url):
@@ -69,17 +69,14 @@ st.pydeck_chart(pdk.Deck(
 #######################
 chart_data = df[['LATITUDE','LONGITUDE']]
 chart_data=chart_data.rename(columns={"LATITUDE": "lat", "LONGITUDE": "lon"})
-# chart_data = pd.DataFrame(
-#    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-#    columns=['lat', 'lon'])
-
+st.write(chart_data[chart_data['date/time'].dt.hour == hour])
 st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state={"latitude": midpoint[0],"longitude": midpoint[1],"zoom": 5,"pitch": 50},
     layers=[
         pdk.Layer(
            'HexagonLayer',
-           data=chart_data,
+           data=chart_data[chart_data['date/time'].dt.hour == hour],
            get_position='[lon, lat]',
            radius=200,
            elevation_scale=4,
