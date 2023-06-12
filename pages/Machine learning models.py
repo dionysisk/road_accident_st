@@ -13,8 +13,8 @@ st.write("""Generally speaking we can consider that accuracy scores:
                     - Between 70% and 90% - Good
                     - Between 60% and 70% - OK""")
 
-choices = ['Random Forest','SVC','KNN','XGBOOST','Gradient Boosting']
-
+# choices = ['Random Forest','SVC','KNN','XGBOOST','Gradient Boosting']
+choices = ['Gradient Boosting']
 option = st.selectbox(
          'Which model do you want to try ?',
          choices)
