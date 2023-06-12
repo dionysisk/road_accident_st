@@ -19,7 +19,7 @@ def prediction(classifier):
    if classifier == 'Gradient Boosting':
       model =joblib.load('GradientBoostingClassifier.joblib')
       model.fit(X_train, y_train)
-    return model
+      return model
 
 
   
