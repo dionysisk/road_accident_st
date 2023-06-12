@@ -354,104 +354,12 @@ def data_viz():
        st.write(data)
 
 
-def modelling():
-    import streamlit as st
-    import pandas as pd
-    st.markdown(f'# {list(page_names_to_funcs.keys())[4]}')
-    from model import prediction, scores
-    
-     
-
-    
-
-    st.write("""Generally speaking we can consider that accuracy scores:
-    
-                          - Over 90% - Very Good
-                    - Between 70% and 90% - Good
-                    - Between 60% and 70% - OK""")
-
-    choices = ['Random Forest','SVC','KNN','XGBOOST','Gradient Boosting']
-
-    prediction = st.cache(prediction,suppress_st_warning=True)
-
-    option = st.selectbox(
-         'Which model do you want to try ?',
-         choices)
-
-    st.write('You selected :', option)
-
-    clf = prediction(option)
-
-    display = st.selectbox(
-         "What do you want to display ?",
-         ('Accuracy', 'Confusion matrix','Classification report'))
-
-    if display == 'Accuracy':
-        st.write(scores(clf, display))
-    elif display == 'Confusion matrix':
-        st.dataframe(scores(clf, display))
-    elif display == 'Classification report':
-        #st.table(classification_report(y_test, clf.predict(X_test)))
-        st.text(scores(clf, display))
-        
-        
-        
-        
-        
-def shap(): 
-    import shap
-    import streamlit as st
-    import streamlit.components.v1 as components
-    import xgboost
-    import pandas as pd
-    from sklearn.model_selection import train_test_split
-    from sklearn.preprocessing import StandardScaler
-    st.markdown(f'# {list(page_names_to_funcs.keys())[5]}')
-    
-    #uploaded_file = st.file_uploader("Choose a file")
-    #if uploaded_file is not None:
-    #  df = pd.read_csv(uploaded_file)
-
-    @st.cache_data
-    def load_data(url):
-        df = pd.read_csv(url)
-        return df
-
-    df = load_data('https://bol.mondial-assistance.gr/Files/modelling/modelling_shap_2012_2015.csv')
-    
-    def st_shap(plot, height=None):
-        shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
-        components.html(shap_html, height=height)
-
-             
-    y =df['grav']
-    X = df.drop(['grav','gravMerged'], axis = 1)
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
-
-    st.write('XGBoost model')
-    model = xgboost.train({"learning_rate": 0.01}, xgboost.DMatrix(X, label=y), 100)
-
-    st.markdown('''explain the model's predictions using SHAP''')
-    
-    explainer = shap.TreeExplainer(model)
-    shap_values = explainer.shap_values(X)
-
-    st.write('<p style="font-size:130%"> #Visualize the first prediction explanation </p>', unsafe_allow_html=True)
-    st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:]))
-
-    st.write('<p style="font-size:130%"> #Visualize the training set predictions </p>', unsafe_allow_html=True)
-    st_shap(shap.force_plot(explainer.expected_value, shap_values, X), 400)
-
         
 page_names_to_funcs = {
     "Home Page": intro,
     "Exploratory Data Analysis advanced": eda_advanced,
     "Exploratory Data Analysis basic": eda_basic,
-    "Data Visualization": data_viz,
-    "Machine Learning Models": modelling,
-    "Shapley Interpretation": shap
-    
+    "Data Visualization": data_viz    
 }
 
 page_name = st.sidebar.selectbox("Choose your page", page_names_to_funcs.keys())
