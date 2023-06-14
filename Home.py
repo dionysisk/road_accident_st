@@ -40,5 +40,5 @@ st.markdown("""
         
     """
     )
- st.markdown("![Alt Text](https://media.tenor.com/tuArNck3bKwAAAAC/car-crash.gif)")
+st.markdown("![Alt Text](https://media.tenor.com/tuArNck3bKwAAAAC/car-crash.gif)")
 
