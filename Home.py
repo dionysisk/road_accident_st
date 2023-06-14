@@ -19,7 +19,7 @@ st.write("#      Road Accidents in France")
 st.image("https://upload.wikimedia.org/wikipedia/commons/2/2f/Multi_vehicle_accident_-_M4_Motorway%2C_Sydney%2C_NSW_%288076208846%29.jpg",
             width=700 # Manually Adjust the width of the image as per requirement
         )
- st.markdown("""
+st.markdown("""
         **👈 Select the page from the dropdown on the left** to select : EDA, Dataviz, Modelling 
         or Shap Interpretation!
         ### Summary of our main tasks done to use Streamlit /GitHub
